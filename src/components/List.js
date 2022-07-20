@@ -1,4 +1,4 @@
-let numba = 0;
+let number = 0;
 function List({ todoList, setTodoList }) {
   const filterActive = todoList.filter((todo) => {
     if (!todo.status) {
@@ -16,12 +16,12 @@ function List({ todoList, setTodoList }) {
   try {
     checkBoxToggle = document.querySelectorAll(".toggle");
   } catch (error) {}
-  if (numba === 0) {
+  if (number === 0) {
     showList = [...todoList];
     filterClassNames[0] = "selected";
     filterClassNames[1] = "";
     filterClassNames[2] = "";
-  } else if (numba === 1) {
+  } else if (number === 1) {
     showList = [...filterActive];
     filterClassNames[1] = "selected";
     filterClassNames[2] = "";
@@ -29,7 +29,7 @@ function List({ todoList, setTodoList }) {
     checkBoxToggle.forEach((check) => {
       check.checked = false;
     });
-  } else if (numba === 2) {
+  } else if (number === 2) {
     showList = [...filterCompleted];
     filterClassNames[2] = "selected";
     filterClassNames[0] = "";
@@ -102,7 +102,7 @@ function List({ todoList, setTodoList }) {
             <a
               href="#/"
               onClick={() => {
-                numba = 0;
+                number = 0;
                 setTodoList([...todoList]);
               }}
               className={filterClassNames[0]}
@@ -115,7 +115,7 @@ function List({ todoList, setTodoList }) {
               href="#/"
               className={filterClassNames[1]}
               onClick={() => {
-                numba = 1;
+                number = 1;
                 setTodoList([...todoList]);
               }}
             >
@@ -127,7 +127,7 @@ function List({ todoList, setTodoList }) {
               href="#/"
               className={filterClassNames[2]}
               onClick={() => {
-                numba = 2;
+                number = 2;
                 setTodoList([...todoList]);
               }}
             >

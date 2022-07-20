@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import AddTodo from "./components/AddTodo";
+import List from "./components/List";
+import { useState, useEffect } from "react";
 
 function App() {
+  let [todoList, setTodoList] = useState([
+    { job: "React Çalış", status: true },
+  ]);
+  useEffect(() => {
+    //console.log(todoList);
+  }, [todoList]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <>
+      <section className="todoapp">
+        <AddTodo todoList={todoList} setTodoList={setTodoList} />
+        <List todoList={todoList} setTodoList={setTodoList} />
+      </section>
+      <footer class="info">
+        <p>React ile yapıldı.</p>
+        <p>Gürkan Akyüz tarafından yazıldı.</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <a href="https://app.patika.dev/">patika.dev</a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      </footer>
+    </>
   );
 }
 
